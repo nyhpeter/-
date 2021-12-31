@@ -1,24 +1,12 @@
-import os
 import pytesseract
 from PIL import Image
 
+im = Image.open('D:\OneDrive\照片\屏幕快照\\屏幕截图 2021-12-31 110052.png')
 
-#path
-path = 'D:\OneDrive\照片\屏幕快照\带变化的真实阻尼\\'
-
-
-
-imgs = [path + i for i in os.listdir(path)]
-
-
-f = open('text.txt','w+',encoding='utf-8')
-
-for img in imgs:
-    f.write(img +'\n')
-
-f.close()
-
-string=pytesseract.image_to_string('text.txt',lang='chi_sim')
+string = pytesseract.image_to_string(im)
 
 print(string)
+
+
+#, lang='chi_sim'
 
